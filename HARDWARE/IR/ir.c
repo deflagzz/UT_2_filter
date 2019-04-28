@@ -7,14 +7,14 @@ u8 g_Send_CAN_or_USART = 0;	//0:CAN 1:串口发送
 //10 -- 1600
 u16 g_voicedelay = 25*20;	//us
 u16 g_TXvoicedelay =20;     //ms 3.4米
-u16 g_yuzhen_30cm = 1700;   //2058-35cm    <30异常的话修改这里
-
+u16 g_yuzhen_30cm = 1900;   //2058-35cm    <30异常的话修改这里
+//1900
 
 u16 g_dayu255 = 2550;
 u8 g_xiaoyu30 = 0;
 u8 g_UT_miss  = 11;
 
-u8 filter_times = 1;  //滤波次数
+u8 filter_times = 2;  //滤波次数
 //u8 average_times = 2;  //滤波次数
 u8 g_time_ut = 1;
 

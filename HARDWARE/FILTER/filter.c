@@ -2,9 +2,6 @@
 #include "math.h"
 
 
-
-
-
 u16 filter_super(u16 *num, u8 n)       
 {
 	u8 i, j,k;
@@ -20,22 +17,22 @@ u16 filter_super(u16 *num, u8 n)
 			if(num[j] > num[j + 1])
 			{
 				temp = num[j];
-				num[j] = num[j + 1];
-				num[j + 1] = temp;
+				num[j] = num[j + 1]; 
+				num[j + 1] = temp;   
 			}            
 		}
 	}
 	
-	
 	for(k=n-4;k<n-2;k++)  //????????  ??0123 45 67
 	{
-		sum += num[k];
+		sum += num[k]; 
 	}
 	
 //	for(k=(n/2);k<(n/2+2);k++)  //????????  ??
 //	{
 //		sum += num[k];
 //	}
+	
 	sum=sum / 2;
 	return sum;
 }
@@ -44,7 +41,7 @@ u16 filter_super(u16 *num, u8 n)
 // ÏŞ·ùÏû¶¶ÂË²¨·¨
 
 u16 g_UT_3filter_val[17][20]; 
-u8 g_UT_filter_i[17];
+u8  g_UT_filter_i[17];
 u16 g_UT_true_val[17];
 u16 g_UT_flag_ErroVal[17];
 

@@ -2,8 +2,9 @@
 #include "led.h"
 #include "delay.h"
 #include "usart.h"
+#include "iap_APP.h"
  
-u8 g_UT_CAN_ID = 0 ;
+u8 g_UT_CAN_ID = 17 ;
  
 //CAN初始化
 //tsjw:重新同步跳跃时间单元.范围:CAN_SJW_1tq~ CAN_SJW_4tq
@@ -84,8 +85,12 @@ void USB_LP_CAN1_RX0_IRQHandler(void)
   	CanRxMsg RxMessage;
 	int i=0;
     CAN_Receive(CAN1, 0, &RxMessage);
-	for(i=0;i<8;i++)
-	printf("rxbuf[%d]:%d\r\n",i,RxMessage.Data[i]);
+	
+	IAP_APP_CAN_ReStart(RxMessage); //APP 程序 CAN 中断内,刷固件跳转程序
+	
+//	for(i=0;i<8;i++)
+//	printf("rxbuf[%d]:%d\r\n",i,RxMessage.Data[i]);
+	
 }
 #endif
 
